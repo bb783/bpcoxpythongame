@@ -62,14 +62,6 @@ endgame_text = Text(
     enabled=False,
 )
 
-high_scores_text = Text(
-    text="High Scores:",
-    color=color.white,
-    position=(0, -0.1),
-    origin=(0, 0),
-    scale=2,
-    enabled=False,
-)
 
 play_again_button = Button(
     text="Play Again",
@@ -116,7 +108,7 @@ def spawn_gold():
 def show_endgame_screen():
     endgame_panel.enabled = True
     endgame_text.enabled = True
-    high_scores_text.enabled = True
+
     play_again_button.enabled = True
 
 def update():
@@ -168,7 +160,7 @@ def update():
         timer_text.text = "Time's up!"
         show_endgame_screen()
 
-    if random.random() < 0.01 and timer > 0:
+    if random.random() < 0.02 and timer > 0:
         spawn_gold()
 
 def play_again():
@@ -183,7 +175,7 @@ def play_again():
     # Enable gameplay elements
     endgame_panel.enabled = False
     endgame_text.enabled = False
-    high_scores_text.enabled = False
+
     play_again_button.enabled = False
 
 def input(key):
